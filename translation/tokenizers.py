@@ -11,6 +11,9 @@ Classes:
     - decode(self, tokenizer, translated_tokens): This method decodes the translated tokens using the specified tokenizer.
 
 """
+import os
+os.environ['TRANSFORMERS_CACHE'] = './hub'
+
 from transformers import NllbTokenizerFast
 
 from utils.langs import lang_list
@@ -41,7 +44,8 @@ class LangTokenizers:
         for lang in self.available_langs:
             assert lang in lang_list, "INVALID_LANG: {} not in langs list".format(lang)
             self.tokenizer[lang] = NllbTokenizerFast.from_pretrained(
-                model, use_auth_token=True, src_lang=lang
+                model, use_auth_token=os.getenv('HUGGING_FACE_TOKEN', 'Token Not found'), src_lang=lang
+        #        model, use_auth_token=False, src_lang=lang
             )
 
     def get_tokenizer(self, lang: str):

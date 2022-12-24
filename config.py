@@ -1,11 +1,14 @@
 import pathlib
 
+from utils.langs import lang_list
+
 # get base dir
 base_dir = pathlib.Path(__file__).parent.resolve()
 
 # all the language you want to translate when calling translate_all_langs in translator.py, you can add up to 200 langs, check
 # utils.langs to know the codification for all the languages
 translation_langs = ["spa_Latn", "eng_Latn", "fra_Latn", "zho_Hans"]
+# translation_langs = lang_list
 
 # full path of LID model
 rel_path = "weights/lid.bin"
@@ -222,6 +225,3 @@ toxicity_files = {
     "zsm_Latn": "{}/zsm_Latn_twl.txt".format(path_toxicity_data),
     "zul_Latn": "{}/zul_Latn_twl.txt".format(path_toxicity_data),
 }
-
-print(toxicity_files["ace_Arab"])
-print(toxicity_files["ace_Latn"])

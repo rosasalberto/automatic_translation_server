@@ -1,4 +1,3 @@
-weights/
+*.bin
 .ipynb_checkpoints/
 __pycache__
-Dockerfile
