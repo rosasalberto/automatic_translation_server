@@ -44,8 +44,8 @@ class LangTokenizers:
         for lang in self.available_langs:
             assert lang in lang_list, "INVALID_LANG: {} not in langs list".format(lang)
             self.tokenizer[lang] = NllbTokenizerFast.from_pretrained(
-                model, use_auth_token=os.getenv('HUGGING_FACE_TOKEN', 'Token Not found'), src_lang=lang
-        #        model, use_auth_token=False, src_lang=lang
+        #        model, use_auth_token=os.getenv('HUGGING_FACE_TOKEN', 'Token Not found'), src_lang=lang
+                model, use_auth_token=False, src_lang=lang
             )
 
     def get_tokenizer(self, lang: str):

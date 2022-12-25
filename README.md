@@ -6,7 +6,7 @@ This API allows you to translate text to 200 languages automatically, detect the
 
 ## Endpoints
 
-![Swagger Image](/media/swagger.png)
+![Swagger Image](./media/swagger.PNG)
 
 ### `/langs`
 
