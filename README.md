@@ -6,11 +6,7 @@ This API allows you to translate text to 200 languages automatically, detect the
 
 ## Endpoints
 
-<<<<<<< HEAD
-![Swagger Image](./media/swagger.PNG)
-=======
 ![Swagger Image](media/swagger.PNG)
->>>>>>> 31a5265a24b8f8fc8f7101f3842989e8dbb84c52
 
 ### `/langs`
 
@@ -80,32 +76,25 @@ To learn how to use these tools, check out the `/examples` folder. There is also
 1. Install CUDA 11.6
    - Windows: https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html
    - Linux: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
-2. Install Torch for CUDA 11.6
-   - Check https://pytorch.org/get-started/locally/
-   ```console
-   pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
-    ```
-3. Verify that Torch with Cuda has been correctly installed
-   ```console
-   >>> import torch
-   >>> torch.cuda.is_available() # should return True
-   >>> torch.cuda.device_count() # should return > 0
-4. Clone this repo
-    ```console
-    git clone https://github.com/rosasalberto/automatic_translation_server
-    ```
-5. Install pipenv
+2. Install pipenv
     ```console
     pip install pipenv
     ```
-6. Install the needed dependencies in a virtual environment and activate it
+3. Clone this repo
     ```console
+    git clone https://github.com/rosasalberto/automatic_translation_server
+    ```
+4. Change directory and install the needed dependencies in a virtual environment and activate it
+    ```console
+    cd automatic_translation_server
     pipenv install
     pipenv shell
     ```
-7. Download Language Detection (LID) model from the provided link: https://tinyurl.com/nllblid218e and add id to the '/weights' folder
-8. Download the NLLB model 'pytorch_model.bin' from https://drive.google.com/drive/folders/1PejK0WhWsY3RJ9c3zEowNzUpctoEfyTY?usp=share_link and add it to the '/hub/models--facebook--nllb-200-distilled-600M/snapshots/368f64e5d5437e922548864bc115edcaa97aed60' folder
-9. Configure the server by modifying the `config.py` file:
+| :warning: Please check the [troubleshooting section](#troubleshooting) if you get any problem installing or running the project |
+|---------------------------------------------------------------------------------------------------------------------------------|
+5. Download Language Detection (LID) model from the provided link: https://tinyurl.com/nllblid218e and add id to the '/weights' folder
+6. Download the NLLB model 'pytorch_model.bin' from https://drive.google.com/drive/folders/1PejK0WhWsY3RJ9c3zEowNzUpctoEfyTY?usp=share_link and add it to the '/hub/models--facebook--nllb-200-distilled-600M/snapshots/368f64e5d5437e922548864bc115edcaa97aed60' folder
+7. Configure the server by modifying the `config.py` file:
    1. Modify `translation_langs` to include the languages you want to be able to translate, using the Flores200 language codes.
    2. Modify `lid_path` to the full path of the LID model.
    3. Modify `path_toxicity_data` to the full path to the toxicity vocab files.
@@ -139,3 +128,22 @@ To build a Docker image, you need to have Docker installed on your machine. If y
     docker run --gpus all -p 8080:8080 translation-service
     ```
 4. Optional: Upload your Image to the Docker Hub
+
+## Troubleshooting
+
+- In packages installation, if you experience problems related to the Python version, try the following command which
+  forces **pipenv** to use a given version of Python:
+
+    ```sh
+    pipenv install --dev --python 3.7.2
+    ```
+- If you do not have python 3.7.2 on your system, you can:
+1. Install Python using your operating system's package manager. On Linux systems, you can use apt-get or yum, and on macOS you can use brew.
+2. Download the Python installer from the official Python website (https://www.python.org/) and run it to install Python on your system.
+3. Use a version manager such as pyenv or asdf to install and manage multiple versions of Python on your system.
+
+Once you have a Python interpreter installed, you should be able to use pipenv to install the dependencies for your project.
+
+## Contact
+
+If you experience any problem don't hesitate to contact: alberto.rosas@gamiumworld.com

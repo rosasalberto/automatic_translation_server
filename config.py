@@ -11,7 +11,7 @@ translation_langs = ["spa_Latn", "eng_Latn", "fra_Latn", "zho_Hans"]
 # translation_langs = lang_list
 
 # full path of LID model
-rel_path = "weights/lid.bin"
+rel_path = "weights/lid218e.bin"
 lid_path = base_dir.joinpath(rel_path).as_posix().replace('\\', '/')
 
 # full path of toxicity vocabulary
