@@ -146,4 +146,4 @@ Once you have a Python interpreter installed, you should be able to use pipenv t
 
 ## Contact
 
-If you experience any problem don't hesitate to contact: testingaalberto@gmail.com
+If you experience any problem don't hesitate to contact: rosas.alberto.upc@gmail.com
