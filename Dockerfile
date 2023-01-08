@@ -6,6 +6,7 @@ COPY . /app
 WORKDIR /app
 
 RUN pip3 install pipenv
+RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
 RUN pipenv install --system --deploy
 
 EXPOSE 8080
