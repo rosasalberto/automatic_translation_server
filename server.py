@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends
 
-from translation.translator import Translator
+from translation.aggregator import Aggregator
 from config import translation_langs
 from models import (
     Translation,
@@ -106,7 +106,7 @@ def translate(params: RequestBodyTranslate = Depends()):
         else params.langs_out.replace(" ", "").split(",")
     )
 
-    translation = translator.translate_input(input_text_, langs_out_)
+    translation = aggregator.get_translation(input_text_, langs_out_)
     return translation
 
 
@@ -133,7 +133,7 @@ def toxicity(params: RequestBodyInput = Depends()):
     """
     input_text_ = get_input_text_formatted(params.input_text)
 
-    toxicity = translator.get_toxicity(input_text_)
+    toxicity = aggregator.get_toxicity(input_text_)
     return toxicity
 
 
@@ -148,7 +148,7 @@ def toxicity(params: RequestBodyInput = Depends()):
     response_description="Returns language detected and confidence score",
     response_model=LIDInput,
 )
-def toxicity(params: RequestBodyInput = Depends()):
+def lid(params: RequestBodyInput = Depends()):
     """
     This function detects the source language of the input text.
 
@@ -160,8 +160,8 @@ def toxicity(params: RequestBodyInput = Depends()):
     """
     input_text_ = get_input_text_formatted(params.input_text)
 
-    lid = translator.get_lid(input_text_)
+    lid = aggregator.get_source_language(input_text_)
     return lid
 
 
-translator = Translator(translation_langs)
+aggregator = Aggregator(translation_langs)
