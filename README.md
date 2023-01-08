@@ -76,15 +76,24 @@ To learn how to use these tools, check out the `/examples` folder. There is also
 1. Install CUDA 11.6
    - Windows: https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html
    - Linux: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
-2. Install pipenv
+2. Install Microsoft C++ Build Tools if using windows:
+   - https://visualstudio.microsoft.com/visual-cpp-build-tools/
+3. Install python 3.7.2 https://www.python.org/downloads/release/python-372/ and add to PATH:
+    has to return Python 3.7.2
+    ```console
+    python --version
+    ```
+4. Upgrade pip
+    python -m pip install --upgrade pip
+5. Install pipenv
     ```console
     pip install pipenv
     ```
-3. Clone this repo
+6. Clone this repo
     ```console
     git clone https://github.com/rosasalberto/automatic_translation_server
     ```
-4. Change directory and install the needed dependencies in a virtual environment and activate it
+7. Change directory and install the needed dependencies in a virtual environment and activate it
     ```console
     cd automatic_translation_server
     pipenv install
@@ -92,9 +101,8 @@ To learn how to use these tools, check out the `/examples` folder. There is also
     ```
 | :warning: Please check the [troubleshooting section](#troubleshooting) if you get any problem installing or running the project |
 |---------------------------------------------------------------------------------------------------------------------------------|
-5. Download Language Detection (LID) model from the provided link: https://tinyurl.com/nllblid218e and add id to the '/weights' folder
-6. Download the NLLB model 'pytorch_model.bin' from https://drive.google.com/drive/folders/1PejK0WhWsY3RJ9c3zEowNzUpctoEfyTY?usp=share_link and add it to the '/hub/models--facebook--nllb-200-distilled-600M/snapshots/368f64e5d5437e922548864bc115edcaa97aed60' folder
-7. Configure the server by modifying the `config.py` file:
+8. Download Language Detection (LID) model from the provided link: https://tinyurl.com/nllblid218e and add id to the '/weights' folder
+9. Configure the server by modifying the `config.py` file:
    1. Modify `translation_langs` to include the languages you want to be able to translate, using the Flores200 language codes.
    2. Modify `lid_path` to the full path of the LID model.
    3. Modify `path_toxicity_data` to the full path to the toxicity vocab files.
