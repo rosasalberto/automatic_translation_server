@@ -9,9 +9,6 @@ Classes:
     - translate(self, inputs, lang_out_id, max_length:int=30): This method translates the input text using the NLLB model.
 
 """
-import os
-os.environ['TRANSFORMERS_CACHE'] = './hub'
-
 from transformers import AutoModelForSeq2SeqLM
 
 
@@ -23,7 +20,6 @@ class NLLB:
         Parameters:
             model (str): This is an optional parameter that specifies the NLLB model to be used for translation. The default value is "facebook/nllb-200-distilled-600M".
         """
-        #self.model = AutoModelForSeq2SeqLM.from_pretrained(model, use_auth_token=os.getenv('HUGGING_FACE_TOKEN', 'Token Not found'))
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model, use_auth_token=False)
 
     def translate(self, inputs, lang_out_id, max_length: int = 30):
