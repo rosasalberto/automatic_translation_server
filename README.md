@@ -76,7 +76,7 @@ To learn how to use these tools, check out the `/examples` folder. There is also
 1. Install CUDA 11.6
    - Windows: https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html
    - Linux: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
-2. Install Microsoft C++ Build Tools if using windows:
+2. Install Microsoft C++ Build Tools if using Windows:
    - https://visualstudio.microsoft.com/visual-cpp-build-tools/
 3. Install python 3.7.2 https://www.python.org/downloads/release/python-372/ and add to PATH:
     has to return Python 3.7.2
@@ -84,7 +84,9 @@ To learn how to use these tools, check out the `/examples` folder. There is also
     python --version
     ```
 4. Upgrade pip
+    ```console
     python -m pip install --upgrade pip
+    ```
 5. Install pipenv
     ```console
     pip install pipenv
