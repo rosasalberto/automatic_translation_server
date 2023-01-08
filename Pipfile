@@ -18,3 +18,5 @@ pydantic = "==1.10.2"
 [dev-packages]
 
 [requires]
+python_version = "3.7"
+python_full_version = "3.7.2"

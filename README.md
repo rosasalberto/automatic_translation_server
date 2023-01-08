@@ -98,7 +98,7 @@ To learn how to use these tools, check out the `/examples` folder. There is also
 7. Change directory and install the needed dependencies in a virtual environment and activate it
     ```console
     cd automatic_translation_server
-    pipenv install
+    pipenv install --dev --python 3.7.2
     pipenv shell
     ```
 | :warning: Please check the [troubleshooting section](#troubleshooting) if you get any problem installing or running the project |
