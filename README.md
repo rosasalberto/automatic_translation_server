@@ -83,6 +83,8 @@ https://hub.docker.com/repository/docker/rosasalberto/translation-service/genera
     docker run --gpus all -p 8080:8080 rosasalberto/translation-service
     ```
 
+Modify `translation_langs` in `config.py` to include the languages you want to be able to translate, using the Flores200 language codes.
+
 ## Installation Guide
 
 1. Install CUDA 11.6
