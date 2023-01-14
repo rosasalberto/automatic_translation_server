@@ -71,6 +71,17 @@ The result of the language detection service, containing the detected language o
 
 To learn how to use these tools, check out the `/examples` folder. There is also a frontend application built with Streamlit that consumes this API. To learn more, check out the following repository: https://github.com/rosasalberto/automatic_translation_frontend.
 
+## Installation Docker
+
+1. Get image
+    ```console
+    docker pull rosasalberto/translation-service
+    ```
+2. Run Image
+    ```console 
+    docker run --gpus all -p 8080:8080 translation-service
+    ```
+
 ## Installation Guide
 
 1. Install CUDA 11.6
